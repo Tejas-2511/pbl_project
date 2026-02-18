@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortionVision | PBL 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
@@ -50,7 +49,7 @@
     <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
         <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
         <p class="text-slate-400 leading-relaxed text-justify">
-            In hostel mess environments, food is self-served by students, but there is no structured guidance on appropriate portion sizes based on individual nutritional requirements. Students differ in age, height, weight, metabolic rate, activity level, dietary preference, and health goals, yet they rely on personal judgment when selecting quantities. This often leads to under-consumption or over-consumption of essential nutrients. Additionally, traditional calorie-tracking methods depend on manual estimation, which is subjective and inaccurate. Estimating precise portion size from a single RGB image is also challenging due to the absence of explicit depth and volume information, particularly for irregular Indian dishes such as rice, dal, sabzi, and curries.
+            In hostel mess environments, food is self-served by students without structured guidance on portion sizes. Since students differ in age, height, weight, metabolism, activity level, and health goals, they often rely on guesswork, leading to over-consumption or under-consumption of nutrients. Manual calorie tracking is also inaccurate, and estimating food portions from a single RGB image is challenging due to the lack of depth information, especially for Indian dishes like rice, dal, sabzi, and curries.
         </p>
     </div>
 
@@ -58,20 +57,27 @@
         <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
             <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Literature Survey Highlights</h3>
             <p class="text-sm text-slate-500 italic">
-                Depth Anything V2, Marigold, and MiDaS for monocular depth estimation. 
-                SAM and SAM 2.0 for segmentation. 
-                IFCT as the primary Indian nutrition database.
+                Depth Anything V2, Marigold, and MiDaS for monocular depth estimation, SAM/SAM2 for segmentation, and IFCT as the primary Indian nutrition database reference.
             </p>
         </div>
 
         <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
             <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Gap</h3>
             <p class="text-sm text-slate-500 italic">
-                Existing calorie apps rely on manual input and lack 3D portion estimation, making them unsuitable for Indian mess-based nutrition monitoring.
+                Most nutrition apps depend on manual food logging and do not support automated portion estimation, making them unsuitable for Indian hostel mess meals where dishes are mixed and portions are not standardized.
+            </p>
+        </div>
+
+        <div class="glass p-7 rounded-3xl border-r-4 border-green-500/50">
+            <h3 class="text-green-400 font-bold text-xs uppercase tracking-widest mb-2">Novelty / Key Contribution</h3>
+            <p class="text-sm text-slate-500 italic">
+                PortionVision integrates menu digitization, personalized portion recommendations, and monocular depth-based estimation to compare recommended intake with actual consumption.
             </p>
         </div>
     </div>
 </section>
+
+
 
 <section id="methodology" class="space-y-12">
     <h2 class="text-4xl font-black text-center uppercase tracking-tight">
@@ -84,7 +90,7 @@
             <i class="fas fa-image text-blue-500 text-3xl mb-4"></i>
             <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Menu Digitization</h3>
             <p class="text-sm text-slate-500">
-                Image Upload -> Sharp Preprocessing -> Tesseract.js OCR -> Cleaning & Deduplication -> JSON Database Update.
+                Image Upload -> Sharp Preprocessing -> Tesseract.js OCR -> Cleaning & Deduplication -> JSON Database .
             </p>
         </div>
 
@@ -92,7 +98,7 @@
             <i class="fas fa-user text-purple-500 text-3xl mb-4"></i>
             <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Personalized Recommendation</h3>
             <p class="text-sm text-slate-500">
-                User Profile Input -> BMI & BMR Calculation -> Daily Calorie & Protein Requirement -> Planned Portion Recommendation Logic.
+                User Profile Input -> BMI & BMR Calculation -> Daily Calorie & Protein Requirement -> Portion Recommendation Logic.
             </p>
         </div>
 
@@ -100,7 +106,7 @@
             <i class="fas fa-cube text-green-500 text-3xl mb-4"></i>
             <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Image-Based Estimation</h3>
             <p class="text-sm text-slate-500">
-                Depth estimation -> segmentation -> plate calibration -> volume -> mass -> nutrition mapping.
+                Depth estimation -> segmentation -> plate calibration -> depth-to-volume conversion -> density-based mass estimation -> nutrition mapping.
             </p>
         </div>
 
@@ -115,57 +121,63 @@
 
     <div class="grid md:grid-cols-2 gap-12">
 
-        <!-- BACKEND COMPLETED -->
+        <!-- BACKEND -->
         <div class="space-y-6">
             <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
                 <h3 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-4">
-                    Backend Completed
+                    Backend Implemented
                 </h3>
                 <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside">
-                    <li>Express server with secure configuration</li>
-                    <li>OCR pipeline using Tesseract.js</li>
-                    <li>Image preprocessing using Sharp (resize, grayscale, threshold, sharpen)</li>
-                    <li>Menu item cleaning, deduplication, and sorting</li>
-                    <li>Structured JSON food database schema</li>
+                    <li>Express server + secure API setup</li>
+                    <li>Sharp preprocessing + Tesseract.js OCR pipeline</li>
+                    <li>Menu cleanup, deduplication, JSON storage update</li>
+                    <li>Food database schema integration</li>
                 </ul>
             </div>
         </div>
 
-        <!-- FRONTEND COMPLETED -->
+        <!-- FRONTEND -->
         <div class="space-y-6">
             <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
                 <h3 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-4">
-                    Frontend Completed
+                    Frontend Implemented
                 </h3>
                 <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside">
-                    <li>React + Vite Progressive Web App (PWA)</li>
-                    <li>Offline support via service worker</li>
-                    <li>User profile input and localStorage persistence</li>
-                    <li>BMI and BMR calculation logic</li>
+                    <li>React + Vite PWA </li>
+                    <li>Profile storage (localStorage) + BMI/BMR logic</li>
                     <li>Menu upload with camera integration</li>
-                    <li>Responsive mobile-first UI (Tailwind CSS)</li>
-                    <li>Routing across 6 application pages</li>
+                    <li>Responsive UI + routing across pages</li>
                 </ul>
             </div>
         </div>
 
     </div>
 
-    <!-- CURRENT LIMITATIONS -->
+    <!-- RECOMMENDATION -->
+    <div class="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
+        <h3 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-4 text-center">
+            Recommendation Engine
+        </h3>
+        <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside text-center">
+            <li>Basic meal-wise recommendation implemented</li>
+            <li>Nutrient balancing + optimization in progress</li>
+        </ul>
+    </div>
+
+    <!-- IN PROGRESS -->
     <div class="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
         <h3 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-4 text-center">
             In Progress
         </h3>
         <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside text-center">
-            <li>Depth-based portion size estimation</li>
-            <li>Food segmentation from plate images</li>
-            <li>Geometric volume and mass computation</li>
-            <li>Personalized portion recommendation engine</li>
-            <li>Actual vs recommended portion comparison with feedback</li>
+            <li>Depth-based portion estimation + segmentation</li>
+            <li>Plate calibration + volume-to-mass conversion</li>
+            <li>Actual vs recommended comparison feedback</li>
         </ul>
     </div>
 
 </section>
+
 
 <section id="team" class="text-center pt-10 border-t border-slate-900">
     <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
@@ -173,39 +185,41 @@
     </h2>
 
     <div class="flex flex-wrap justify-center gap-10">
+
         <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
             <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
                 Student
             </p>
             <p class="font-black text-xl text-slate-100">
-                Jaskirat Singh          
+                Jaskirat Singh
             </p>
             <p class="text-[10px] text-slate-500 mt-1">
                 2427030438
             </p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-10">
-            <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-                <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-                    Student
-                </p>
-                <p class="font-black text-xl text-slate-100">
-                    Tejas Takkar
-                </p>
-                <p class="text-[10px] text-slate-500 mt-1">
-                    2427030460
-                </p>
-            </div>
-            <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-                <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
-                    Project Guide
-                </p>
-                <p class="font-black text-xl text-slate-100">
-                    Dr. Manu Shrivastava
-                </p>
-            </div>
+        <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
+            <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
+                Student
+            </p>
+            <p class="font-black text-xl text-slate-100">
+                Tejas Takkar
+            </p>
+            <p class="text-[10px] text-slate-500 mt-1">
+                2427030460
+            </p>
         </div>
+
+        <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
+            <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
+                Project Guide
+            </p>
+            <p class="font-black text-xl text-slate-100">
+                Dr. Manu Shrivastava
+            </p>
+        </div>
+
+    </div>
 </section>
 
 </main>
@@ -218,8 +232,12 @@
 
 <script>
 let sec = 0;
+let timerInterval = null;
+
 function startTimer() {
-    setInterval(() => {
+    if (timerInterval) return;
+
+    timerInterval = setInterval(() => {
         sec++;
         let m = Math.floor(sec / 60);
         let s = sec % 60;
@@ -227,29 +245,6 @@ function startTimer() {
         `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     }, 1000);
 }
-
-const ctx = document.getElementById('resultsChart').getContext('2d');
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Existing System', 'Our Solution'],
-        datasets: [{
-            data: [70, 92],
-            backgroundColor: ['#1e293b', '#3b82f6'],
-            borderRadius: 15,
-            barThickness: 50
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: { 
-            y: { beginAtZero: true, grid: { color: '#ffffff05' }, ticks: { color: '#475569' } },
-            x: { grid: { display: false }, ticks: { color: '#475569' } }
-        }
-    }
-});
 </script>
 
 </body>
