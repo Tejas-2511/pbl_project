@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,244 +9,312 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-        body { background-color: #020617; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        #timerContainer { background: #ffffff; color: #020617; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 3px solid #3b82f6; z-index: 1000; }
+
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #timerContainer {
+            background: #ffffff;
+            color: #020617;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            border: 3px solid #3b82f6;
+            z-index: 1000;
+        }
     </style>
 </head>
+
 <body onload="startTimer()">
 
-<div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
-    <i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
-    <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
-</div>
-
-<nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-        <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">
-            PBL <span class="text-blue-500 italic">2026</span>
-        </span>
-    </div>
-</nav>
-
-<main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
-        
-<section class="text-center">
-    <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
-        2427030460,2427030438
+    <div id="timerContainer"
+        class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
+        <i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
+        <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
     </div>
 
-    <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-        <span class="gradient-text uppercase">PortionVision</span>
-    </h1>
+    <nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">
+                PBL <span class="text-blue-500 italic">2026</span>
+            </span>
+        </div>
+    </nav>
 
-    <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-        "An intelligent nutrition system for hostel mess environments that combines personalized portion recommendations with image-based portion estimation for accurate comparison."
-    </p>
-</section>
+    <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
 
-<section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
-    <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
-        <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
-        <p class="text-slate-400 leading-relaxed text-justify">
-            In hostel mess environments, food is self-served by students without structured guidance on portion sizes. Since students differ in age, height, weight, metabolism, activity level, and health goals, they often rely on guesswork, leading to over-consumption or under-consumption of nutrients. Manual calorie tracking is also inaccurate, and estimating food portions from a single RGB image is challenging due to the lack of depth information, especially for Indian dishes like rice, dal, sabzi, and curries.
+        <section class="text-center">
+            <div
+                class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
+                2427030460,2427030438
+            </div>
+
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+                <span class="gradient-text uppercase">PortionVision</span>
+            </h1>
+
+            <p
+                class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+                "An intelligent nutrition system for hostel mess environments that combines personalized portion
+                recommendations with image-based portion estimation for accurate comparison."
+            </p>
+        </section>
+
+        <!-- PROBLEM & SOLUTION -->
+        <section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
+                <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+                <p class="text-slate-400 leading-relaxed text-justify">
+                    In hostel mess environments, food is self-served without structured guidance on portion sizes.
+                    Students differ in age, height, weight, metabolism, activity level, and health goals, leading to
+                    guesswork and poor nutritional tracking. Furthermore, estimating food portion weights from a single
+                    RGB image is inherently challenging due to the lack of depth information, especially for Indian
+                    dishes lacking standardized sizes.
+                </p>
+            </div>
+
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-r-4 border-green-500">
+                <h2 class="text-3xl font-extrabold mb-6 text-right">How We Solve It</h2>
+                <p class="text-slate-400 leading-relaxed text-justify">
+                    PortionVision digitizes the daily mess menu, computes personalized nutritional requirements based on
+                    user biometric profiles, and recommends precise portions. It leverages a Computer Vision pipeline to
+                    analyze a photo of the user's plate, estimating real-world mass through depth-based volume
+                    integration and density mapping (currently under calibration) to provide an "Ideal vs. Actual"
+                    consumption feedback loop.
+                </p>
+            </div>
+        </section>
+
+        <!-- SYSTEM BASICS (FRONTEND / BACKEND) -->
+        <section id="system-basics" class="space-y-12">
+            <h2 class="text-4xl font-black text-center uppercase tracking-tight">
+                <span class="text-purple-500">System</span> Architecture
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Backend -->
+                <div class="glass p-8 rounded-3xl border-t-4 border-purple-400 flex flex-col">
+                    <div class="flex items-center gap-2 mb-4">
+                        <h3 class="text-purple-400 font-bold uppercase text-xs tracking-widest">Backend Systems</h3>
+                        <span
+                            class="px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 text-[8px] font-bold uppercase tracking-wider ml-auto">Working</span>
+                    </div>
+                    <ul class="text-slate-400 text-sm space-y-3 list-disc list-inside">
+                        <li>Tesseract.js OCR dynamically maps unstructured menu text to the JSON food database.</li>
+                        <li>Recommendation engine filters dishes by diet to compute ideal portions.</li>
+                    </ul>
+                </div>
+
+                <!-- CV Service -->
+                <div class="glass p-8 rounded-3xl border-t-4 border-amber-400 flex flex-col">
+                    <div class="flex items-center gap-2 mb-4">
+                        <h3 class="text-amber-400 font-bold uppercase text-xs tracking-widest">CV Pipeline</h3>
+                        <span
+                            class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[8px] font-bold uppercase tracking-wider ml-auto">Validating</span>
+                    </div>
+                    <ul class="text-slate-400 text-sm space-y-3 list-disc list-inside">
+                        <li>Depth Anything & SAM compute internal volumetric arrays.</li>
+                        <li>Region-based classification models operate and yield prediction confidences.</li>
+                        <li>A Hungarian optimal assignment algorithm maps segmented regions to expected food items for accurate matching.</li>
+                        <li>Pipeline is unbroken; physical mass logic is undergoing final calibration.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV PIPELINE DEEP DIVE -->
+        <section id="cv-pipeline" class="glass p-12 rounded-[3.5rem] border-t-4 border-pink-500">
+            <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
+                CV Pipeline <span class="text-pink-500">Deep Dive</span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-layer-group text-pink-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">1. Depth & Segmentation</h3>
+                    <p class="text-sm text-slate-500">
+                        Input images pass a quality gate (blur and tilt detection) before entering the pipeline. Depth Anything estimates relative depth maps while SAM generates binary masks used for later volumetric computation.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-bullseye text-blue-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">2. Calibration & Classification</h3>
+                    <p class="text-sm text-slate-500">
+                        Plate scale calibration converts pixels to cm. Food regions are classified using MobileNetV3,
+                        with OCR-extracted menu items boosting prediction confidence.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-weight-scale text-green-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">3. Volumetric Mass</h3>
+                    <p class="text-sm text-slate-500">
+                        Voxel-wise integration computes volume using depth maps, fused with food-specific height priors.
+                        Dynamic density mapping converts the volume to estimated mass (grams).
+                    </p>
+                    <p class="text-sm text-slate-500 mt-2">
+                        A composite confidence score combines segmentation, classification, depth stability, and
+                        calibration reliability.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURRENT STATUS -->
+        <section class="glass p-10 rounded-[2.5rem] border-t-4 border-amber-500">
+            <h2 class="text-3xl font-extrabold mb-6 text-center uppercase tracking-tight">
+                Current <span class="text-amber-500">Status</span>
+            </h2>
+
+            <div class="space-y-4 text-sm text-slate-400 text-center">
+                <p><strong>OCR + Recommendation:</strong> Fully functional and validated</p>
+                <p><strong>Frontend System:</strong> Complete and working</p>
+                <p><strong>CV Pipeline:</strong> Implemented but accurate real-world output still under validation</p>
+                <p><strong>Prototype Stage:</strong> The system is currently at a prototype stage, with CV-based estimation requiring further calibration for reliable deployment.</p>
+            </div>
+        </section>
+
+        <!-- MODEL LIMITATIONS -->
+        <section id="limitations" class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h2 class="text-4xl font-black uppercase tracking-tight mb-6">
+                    Model <span class="text-red-500">Limitations</span>
+                </h2>
+                <p class="text-slate-400 mb-6">While the CV pipeline handles structured plates well, there are inherent
+                    challenges:</p>
+                <ul class="text-slate-400 text-sm space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
+                        <span><strong>Monocular Ambiguity:</strong> Single-view depth estimation relies on visual
+                            priors; without multi-view geometry, a flat roti can exhibit depth signals mathematically
+                            similar to a shallow dal.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
+                        <span><strong>Segmentation Overlap:</strong> Deep learning models like SAM struggle with
+                            semantically blended edges, such as dal poured directly over rice, causing volume leakage
+                            between regions.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
+                        <span><strong>Scale Dependency:</strong> Accurate mass estimation heavily relies on standard
+                            plate geometries. Uncalibrated frames heavily skew volume results.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="glass p-10 rounded-[2.5rem] flex items-center justify-center bg-red-500/5">
+                <i class="fas fa-triangle-exclamation text-8xl text-red-500/20"></i>
+            </div>
+        </section>
+
+        <!-- FUTURE WORK -->
+        <section id="future-work" class="space-y-12">
+            <h2 class="text-4xl font-black text-center uppercase tracking-tight">
+                <span class="text-emerald-500">Future</span> Work
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-3xl text-center border-b-2 border-emerald-500/20">
+                    <i class="fas fa-brain text-emerald-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Custom Weights</h3>
+                    <p class="text-sm text-slate-500">Fine-tuning models explicitly on an Indian Mess Meals dataset to
+                        boost accuracy for closely related foods like distinct curries.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl text-center border-b-2 border-emerald-500/20">
+                    <i class="fas fa-utensils text-emerald-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Cutlery Filtering</h3>
+                    <p class="text-sm text-slate-500">Adding a structural detection layer to identify and ignore forks,
+                        spoons, and non-food items to prevent volume estimation inflation.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl text-center border-b-2 border-emerald-500/20">
+                    <i class="fas fa-cloud text-emerald-500 text-3xl mb-4"></i>
+                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Real-Time AR</h3>
+                    <p class="text-sm text-slate-500">Migrating to cloud GPU edge endpoints to project recommended
+                        portion overlay targets directly via mobile WebGL in augmented reality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM -->
+        <section id="team" class="text-center pt-10 border-t border-slate-900">
+            <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
+                Academic Credits
+            </h2>
+
+            <div class="flex flex-wrap justify-center gap-10">
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
+                    <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
+                        Student
+                    </p>
+                    <p class="font-black text-xl text-slate-100">
+                        Jaskirat Singh
+                    </p>
+                    <p class="text-[10px] text-slate-500 mt-1">
+                        2427030438
+                    </p>
+                </div>
+
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
+                    <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
+                        Student
+                    </p>
+                    <p class="font-black text-xl text-slate-100">
+                        Tejas Takkar
+                    </p>
+                    <p class="text-[10px] text-slate-500 mt-1">
+                        2427030460
+                    </p>
+                </div>
+
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
+                    <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
+                        Project Guide
+                    </p>
+                    <p class="font-black text-xl text-slate-100">
+                        Dr. Manu Shrivastava
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-12 text-center bg-black/40 border-t border-slate-900">
+        <p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
+            Manipal University Jaipur
         </p>
-    </div>
+    </footer>
 
-    <div class="space-y-6">
-        <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
-            <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Literature Survey Highlights</h3>
-            <p class="text-sm text-slate-500 italic">
-                Depth Anything V2, Marigold, and MiDaS for monocular depth estimation, SAM/SAM2 for segmentation, and IFCT as the primary Indian nutrition database reference.
-            </p>
-        </div>
+    <script>
+        let sec = 0;
+        let timerInterval = null;
 
-        <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
-            <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Gap</h3>
-            <p class="text-sm text-slate-500 italic">
-                Most nutrition apps depend on manual food logging and do not support automated portion estimation, making them unsuitable for Indian hostel mess meals where dishes are mixed and portions are not standardized.
-            </p>
-        </div>
+        function startTimer() {
+            if (timerInterval) return;
 
-        <div class="glass p-7 rounded-3xl border-r-4 border-green-500/50">
-            <h3 class="text-green-400 font-bold text-xs uppercase tracking-widest mb-2">Novelty / Key Contribution</h3>
-            <p class="text-sm text-slate-500 italic">
-                PortionVision integrates menu digitization, personalized portion recommendations, and monocular depth-based estimation to compare recommended intake with actual consumption.
-            </p>
-        </div>
-    </div>
-</section>
-
-
-
-<section id="methodology" class="space-y-12">
-    <h2 class="text-4xl font-black text-center uppercase tracking-tight">
-        Proposed <span class="text-blue-500">Solution Workflow</span>
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-8">
-
-        <div class="glass p-8 rounded-3xl text-center">
-            <i class="fas fa-image text-blue-500 text-3xl mb-4"></i>
-            <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Menu Digitization</h3>
-            <p class="text-sm text-slate-500">
-                Image Upload -> Sharp Preprocessing -> Tesseract.js OCR -> Cleaning & Deduplication -> JSON Database .
-            </p>
-        </div>
-
-        <div class="glass p-8 rounded-3xl text-center">
-            <i class="fas fa-user text-purple-500 text-3xl mb-4"></i>
-            <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Personalized Recommendation</h3>
-            <p class="text-sm text-slate-500">
-                User Profile Input -> BMI & BMR Calculation -> Daily Calorie & Protein Requirement -> Portion Recommendation Logic.
-            </p>
-        </div>
-
-        <div class="glass p-8 rounded-3xl text-center">
-            <i class="fas fa-cube text-green-500 text-3xl mb-4"></i>
-            <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Image-Based Estimation</h3>
-            <p class="text-sm text-slate-500">
-                Depth estimation -> segmentation -> plate calibration -> depth-to-volume conversion -> density-based mass estimation -> nutrition mapping.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<!-- IMPLEMENTATION STATUS -->
-<section id="results" class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-500">
-    <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-        Implementation <span class="text-blue-500">Status</span>
-    </h2>
-
-    <div class="grid md:grid-cols-2 gap-12">
-
-        <!-- BACKEND -->
-        <div class="space-y-6">
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
-                <h3 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-4">
-                    Backend Implemented
-                </h3>
-                <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside">
-                    <li>Express server + secure API setup</li>
-                    <li>Sharp preprocessing + Tesseract.js OCR pipeline</li>
-                    <li>Menu cleanup, deduplication, JSON storage update</li>
-                    <li>Food database schema integration</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- FRONTEND -->
-        <div class="space-y-6">
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
-                <h3 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-4">
-                    Frontend Implemented
-                </h3>
-                <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside">
-                    <li>React + Vite PWA </li>
-                    <li>Profile storage (localStorage) + BMI/BMR logic</li>
-                    <li>Menu upload with camera integration</li>
-                    <li>Responsive UI + routing across pages</li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- RECOMMENDATION -->
-    <div class="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
-        <h3 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-4 text-center">
-            Recommendation Engine
-        </h3>
-        <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside text-center">
-            <li>Basic meal-wise recommendation implemented</li>
-            <li>Nutrient balancing + optimization in progress</li>
-        </ul>
-    </div>
-
-    <!-- IN PROGRESS -->
-    <div class="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10 shadow-inner">
-        <h3 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-4 text-center">
-            In Progress
-        </h3>
-        <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside text-center">
-            <li>Depth-based portion estimation + segmentation</li>
-            <li>Plate calibration + volume-to-mass conversion</li>
-            <li>Actual vs recommended comparison feedback</li>
-        </ul>
-    </div>
-
-</section>
-
-
-<section id="team" class="text-center pt-10 border-t border-slate-900">
-    <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
-        Academic Credits
-    </h2>
-
-    <div class="flex flex-wrap justify-center gap-10">
-
-        <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-            <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-                Student
-            </p>
-            <p class="font-black text-xl text-slate-100">
-                Jaskirat Singh
-            </p>
-            <p class="text-[10px] text-slate-500 mt-1">
-                2427030438
-            </p>
-        </div>
-
-        <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-            <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-                Student
-            </p>
-            <p class="font-black text-xl text-slate-100">
-                Tejas Takkar
-            </p>
-            <p class="text-[10px] text-slate-500 mt-1">
-                2427030460
-            </p>
-        </div>
-
-        <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-            <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
-                Project Guide
-            </p>
-            <p class="font-black text-xl text-slate-100">
-                Dr. Manu Shrivastava
-            </p>
-        </div>
-
-    </div>
-</section>
-
-</main>
-
-<footer class="py-12 text-center bg-black/40 border-t border-slate-900">
-    <p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
-        Manipal University Jaipur
-    </p>
-</footer>
-
-<script>
-let sec = 0;
-let timerInterval = null;
-
-function startTimer() {
-    if (timerInterval) return;
-
-    timerInterval = setInterval(() => {
-        sec++;
-        let m = Math.floor(sec / 60);
-        let s = sec % 60;
-        document.getElementById('displayTime').innerText =
-        `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-    }, 1000);
-}
-</script>
+            timerInterval = setInterval(() => {
+                sec++;
+                let m = Math.floor(sec / 60);
+                let s = sec % 60;
+                document.getElementById('displayTime').innerText =
+                    `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+    </script>
 
 </body>
+
 </html>
