@@ -1,320 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortionVision | PBL 2026</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PortionVision | Presentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
 
-        body {
-            background-color: #020617;
-            color: #f8fafc;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
-        }
+    body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #60a5fa, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        #timerContainer {
-            background: #ffffff;
-            color: #020617;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-            border: 3px solid #3b82f6;
-            z-index: 1000;
-        }
-    </style>
+    .gradient-text {
+      background: linear-gradient(90deg, #60a5fa, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
-
-<body onload="startTimer()">
-
-    <div id="timerContainer"
-        class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
-        <i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
-        <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
+<body>
+  <nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">
+        PBL-3 <span class="text-blue-500 italic">Mid-Term</span>
+      </span>
     </div>
+  </nav>
 
-    <nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-4">
-            <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">
-                PBL <span class="text-blue-500 italic">2026</span>
-            </span>
+  <main class="max-w-6xl mx-auto px-6 pt-40 pb-24 space-y-24">
+    <section class="text-center">
+      <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
+        Presentation Summary · PortionVision
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-8 uppercase leading-tight">
+        <span class="gradient-text">PortionVision</span>
+        <span class="block text-2xl md:text-3xl text-slate-300 normal-case mt-4 font-bold">
+          Indian Food Identification for Automated Portion Estimation
+        </span>
+      </h1>
+      <p class="text-slate-400 max-w-3xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+        This semester focused on the most critical bottleneck in the full PortionVision pipeline: reliable Indian food identification from real-world food images.
+      </p>
+    </section>
+
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-blue-600">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-6"><span class="text-blue-500">Problem</span> Statement</h2>
+      <p class="text-slate-300 leading-relaxed text-justify mb-8">
+        In hostel mess environments, food is self-served without structured guidance on portion sizes. Students differ in age, height, weight, metabolism, activity level, and health goals, leading to guesswork and poor nutritional tracking. Furthermore, estimating food portion weights from a single RGB image is inherently challenging due to the lack of depth information, especially for Indian dishes lacking standardized sizes.
+      </p>
+
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-6"><span class="text-purple-500">How We</span> Solve It</h2>
+      <p class="text-slate-300 leading-relaxed text-justify mb-8">
+        PortionVision digitizes the daily mess menu, computes personalized nutritional requirements based on user biometric profiles, and recommends precise portions. It leverages a Computer Vision pipeline to analyze a photo of the user's plate, estimating real-world mass through depth-based volume integration and density mapping (currently under calibration) to provide an "Ideal vs. Actual" consumption feedback loop.
+      </p>
+
+      <p class="text-slate-300 leading-relaxed text-justify">
+        The earlier PBL project already developed the broader pipeline — OCR of menu data, personalized recommendations, and segmentation/depth-based mass estimation — but the main bottleneck remained the food identification stage. This is especially challenging for Indian food because of class imbalance, visually similar dishes, and multi-item plates.
+      </p>
+    </section>
+
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-purple-500">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-6"><span class="text-purple-500">Objectives</span></h2>
+      <div class="grid md:grid-cols-2 gap-6 text-slate-300">
+        <ul class="space-y-3 list-disc list-inside text-slate-400">
+          <li>Build a reliable classifier for Indian food images from hostel and mess contexts.</li>
+          <li>Improve the food-identification stage that was the limiting factor in the previous system.</li>
+          <li>Use transfer learning and a practical CNN backbone to achieve strong recognition accuracy.</li>
+          <li>Handle a large category set while maintaining low computational cost.</li>
+        </ul>
+        <ul class="space-y-3 list-disc list-inside text-slate-400">
+          <li>Support real image prediction with label and confidence output.</li>
+          <li>Analyse weak classes and visual confusion patterns.</li>
+          <li>Provide a strong foundation for downstream mass, calorie, and nutrition estimation.</li>
+          <li>Expand the scope beyond the earlier limited food-identification setup toward a more robust system.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-amber-500">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-6"><span class="text-amber-500">Literature</span> / Existing Work</h2>
+      <div class="grid md:grid-cols-2 gap-8 text-slate-300">
+        <div>
+          <h3 class="text-lg font-bold uppercase tracking-widest text-slate-200 mb-3">Previous PBL work</h3>
+          <ul class="space-y-3 list-disc list-inside text-slate-400">
+            <li>Built the overall PortionVision pipeline with OCR, personalized nutrition logic, and plate analysis components.</li>
+            <li>Identified the key limitation: the classifier was not sufficiently accurate for real Indian food categories.</li>
+            <li>Recognized that a robust food recognition module is essential before mass estimation can be trusted.</li>
+          </ul>
         </div>
-    </nav>
+        <div>
+          <h3 class="text-lg font-bold uppercase tracking-widest text-slate-200 mb-3">Relevant computer vision trends</h3>
+          <ul class="space-y-3 list-disc list-inside text-slate-400">
+            <li>Transfer learning with ImageNet-pretrained CNNs is standard for food recognition tasks.</li>
+            <li>EfficientNet provides a strong balance between accuracy and model size.</li>
+            <li>Food datasets are often imbalanced, and visually similar dishes remain a known challenge in classification.</li>
+            <li>Real-world food recognition is harder than benchmark datasets because of angle, lighting, clutter, and mixed plates.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-    <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-pink-500">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-8"><span class="text-pink-500">Methodology</span></h2>
+      <div class="grid md:grid-cols-2 gap-8 text-slate-300">
+        <div class="space-y-5">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">1. Dataset</h3>
+            <p class="text-slate-400 leading-relaxed">The system uses the Khana dataset, containing Indian food images across a large class set. The dataset is organised by class folder and contains highly diverse food types with uneven class distribution.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">2. Data split</h3>
+            <p class="text-slate-400 leading-relaxed">The dataset is split into train, validation, and test subsets using a fixed random seed to ensure reproducible evaluation and reduce leakage.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">3. Preprocessing</h3>
+            <p class="text-slate-400 leading-relaxed">Images are converted to RGB, resized to 224×224, and normalized using ImageNet statistics so the pretrained backbone sees a familiar input distribution.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">4. Model choice</h3>
+            <p class="text-slate-400 leading-relaxed">EfficientNet-B0 is selected as the backbone due to its strong accuracy-to-parameter ratio. The last classifier head is replaced to match the food category count.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">5. Training</h3>
+            <p class="text-slate-400 leading-relaxed">Transfer learning is applied with an ImageNet-pretrained backbone. The classifier head receives a higher learning rate than the backbone, and label smoothing helps reduce overconfidence.</p>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">6. Evaluation</h3>
+            <p class="text-slate-400 leading-relaxed">The classifier is evaluated using top-1 accuracy, top-5 accuracy, precision, recall, F1-score, confusion matrix, and failure analysis on difficult classes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="text-center">
-            <div
-                class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
-                2427030460,2427030438
-            </div>
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-green-500">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-8"><span class="text-green-500">Implementation</span> Status</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm uppercase tracking-widest text-green-400 mb-2">Completed</h3>
+          <ul class="space-y-2 list-disc list-inside text-slate-400">
+            <li>Built the food classification pipeline for Indian dishes.</li>
+            <li>Prepared the dataset loader and split logic.</li>
+            <li>Implemented EfficientNet-B0 transfer learning.</li>
+            <li>Set up training, checkpointing, and resume support.</li>
+            <li>Validated on held-out test data and analysed failures.</li>
+            <li>Enabled prediction on real food images with confidence scores.</li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm uppercase tracking-widest text-amber-400 mb-2">Ongoing / next</h3>
+          <ul class="space-y-2 list-disc list-inside text-slate-400">
+            <li>Improve recall on underrepresented food categories.</li>
+            <li>Expand recognition capacity beyond the existing 80-label scope.</li>
+            <li>Work toward multi-food thali recognition instead of single-label prediction.</li>
+            <li>Integrate classification with volume, mass, and nutrition estimation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
-                <span class="gradient-text uppercase">PortionVision</span>
-            </h1>
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-red-500">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-8"><span class="text-red-500">Current</span> Results</h2>
+      <div class="grid md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+        <div class="glass p-6 rounded-2xl text-center">
+          <p class="text-3xl font-black text-blue-400">88.51%</p>
+          <p class="text-slate-500 text-[10px] uppercase mt-2">Top-1</p>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center">
+          <p class="text-3xl font-black text-blue-400">98.31%</p>
+          <p class="text-slate-500 text-[10px] uppercase mt-2">Top-5</p>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center">
+          <p class="text-2xl font-black text-slate-200">87.80%</p>
+          <p class="text-slate-500 text-[10px] uppercase mt-2">Precision</p>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center">
+          <p class="text-2xl font-black text-slate-200">81.40%</p>
+          <p class="text-slate-500 text-[10px] uppercase mt-2">Recall</p>
+        </div>
+        <div class="glass p-6 rounded-2xl text-center">
+          <p class="text-2xl font-black text-slate-200">83.70%</p>
+          <p class="text-slate-500 text-[10px] uppercase mt-2">Macro F1</p>
+        </div>
+      </div>
+      <p class="text-slate-500 text-sm text-center mt-6 max-w-3xl mx-auto">
+        These metrics show a strong starting point for the food classification module, with the strongest performance on well-represented classes and the expected challenge on visually similar or low-sample dishes.
+      </p>
+    </section>
 
-            <p
-                class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-                "An intelligent nutrition system for hostel mess environments that combines personalized portion
-                recommendations with image-based portion estimation for accurate comparison."
-            </p>
-        </section>
+    <section class="glass p-10 rounded-[2.5rem] border-l-4 border-emerald-500">
+      <h2 class="text-4xl font-black uppercase tracking-tight mb-8"><span class="text-emerald-500">Plan</span> for Remaining Work</h2>
+      <div class="grid md:grid-cols-2 gap-6 text-slate-300">
+        <div class="border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm font-bold uppercase tracking-widest text-slate-200 mb-3">Short-term</h3>
+          <ul class="space-y-2 list-disc list-inside text-slate-400">
+            <li>Improve low-support classes by collecting more labelled food images.</li>
+            <li>Reduce confusion among visually similar categories like phirni vs kheer and dabeli vs vada pav.</li>
+            <li>Refine real-image prediction to show class label plus confidence in a cleaner interface.</li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-2xl p-5">
+          <h3 class="text-sm font-bold uppercase tracking-widest text-slate-200 mb-3">Long-term</h3>
+          <ul class="space-y-2 list-disc list-inside text-slate-400">
+            <li>Expand the classifier beyond the current set to cover a broader range of Indian dishes.</li>
+            <li>Move from single-label classification to multi-food thali recognition.</li>
+            <li>Integrate recognition with segmentation, depth, and mass estimation for final portion analysis.</li>
+            <li>Develop a more deployment-ready system for real hostel or mess use.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-        <!-- PROBLEM & SOLUTION -->
-        <section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
-            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
-                <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
-                <p class="text-slate-400 leading-relaxed text-justify">
-                    In hostel mess environments, food is self-served without structured guidance on portion sizes.
-                    Students differ in age, height, weight, metabolism, activity level, and health goals, leading to
-                    guesswork and poor nutritional tracking. Furthermore, estimating food portion weights from a single
-                    RGB image is inherently challenging due to the lack of depth information, especially for Indian
-                    dishes lacking standardized sizes.
-                </p>
-            </div>
-
-            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-r-4 border-green-500">
-                <h2 class="text-3xl font-extrabold mb-6 text-right">How We Solve It</h2>
-                <p class="text-slate-400 leading-relaxed text-justify">
-                    PortionVision digitizes the daily mess menu, computes personalized nutritional requirements based on
-                    user biometric profiles, and recommends precise portions. It leverages a Computer Vision pipeline to
-                    analyze a photo of the user's plate, estimating real-world mass through depth-based volume
-                    integration and density mapping (currently under calibration) to provide an "Ideal vs. Actual"
-                    consumption feedback loop.
-                </p>
-            </div>
-        </section>
-
-        <!-- SYSTEM BASICS (FRONTEND / BACKEND) -->
-        <section id="system-basics" class="space-y-12">
-            <h2 class="text-4xl font-black text-center uppercase tracking-tight">
-                <span class="text-purple-500">System</span> Architecture
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Backend -->
-                <div class="glass p-8 rounded-3xl border-t-4 border-purple-400 flex flex-col">
-                    <div class="flex items-center gap-2 mb-4">
-                        <h3 class="text-purple-400 font-bold uppercase text-xs tracking-widest">Backend Systems</h3>
-                        <span
-                            class="px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 text-[8px] font-bold uppercase tracking-wider ml-auto">Working</span>
-                    </div>
-                    <ul class="text-slate-400 text-sm space-y-3 list-disc list-inside">
-                        <li>Tesseract.js OCR dynamically maps unstructured menu text to the JSON food database.</li>
-                        <li>Recommendation engine filters dishes by diet to compute ideal portions.</li>
-                    </ul>
-                </div>
-
-                <!-- CV Service -->
-                <div class="glass p-8 rounded-3xl border-t-4 border-amber-400 flex flex-col">
-                    <div class="flex items-center gap-2 mb-4">
-                        <h3 class="text-amber-400 font-bold uppercase text-xs tracking-widest">CV Pipeline</h3>
-                        <span
-                            class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-[8px] font-bold uppercase tracking-wider ml-auto">Validating</span>
-                    </div>
-                    <ul class="text-slate-400 text-sm space-y-3 list-disc list-inside">
-                        <li>Depth Anything estimates relative depth maps while SAM generates segmentation masks used for downstream volumetric computation.</li>
-                        <li>Region-based classification using MobileNetV3 produces food label predictions with confidence scores.</li>
-                        <li>A Hungarian optimal assignment algorithm maps segmented regions to expected food items for accurate matching.</li>
-                        <li>Pipeline is fully integrated; physical mass estimation is undergoing final calibration.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- CV PIPELINE DEEP DIVE -->
-        <section id="cv-pipeline" class="glass p-12 rounded-[3.5rem] border-t-4 border-pink-500">
-            <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-                CV Pipeline <span class="text-pink-500">Deep Dive</span>
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <i class="fas fa-layer-group text-pink-500 text-3xl mb-4"></i>
-                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">1. Depth & Segmentation</h3>
-                    <p class="text-sm text-slate-500">
-                        Input images pass a quality gate (blur and tilt detection) before entering the pipeline. Depth Anything estimates relative depth maps while SAM generates binary masks used for later volumetric computation.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <i class="fas fa-bullseye text-blue-500 text-3xl mb-4"></i>
-                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">2. Calibration & Classification</h3>
-                    <p class="text-sm text-slate-500">
-                        Plate scale calibration converts pixels to cm. Food regions are classified using MobileNetV3,
-                        with OCR-extracted menu items boosting prediction confidence.
-                    </p>
-                </div>
-                <div class="text-center">
-                    <i class="fas fa-weight-scale text-green-500 text-3xl mb-4"></i>
-                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">3. Volumetric Mass</h3>
-                    <p class="text-sm text-slate-500">
-                        Voxel-wise integration computes volume using depth maps, fused with food-specific height priors.
-                        Dynamic density mapping converts the volume to estimated mass (grams).
-                    </p>
-                    <p class="text-sm text-slate-500 mt-2">
-                        A composite confidence score combines segmentation, classification, depth stability, and
-                        calibration reliability.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CURRENT STATUS -->
-        <section class="glass p-10 rounded-[2.5rem] border-t-4 border-amber-500">
-            <h2 class="text-3xl font-extrabold mb-6 text-center uppercase tracking-tight">
-                Current <span class="text-amber-500">Status</span>
-            </h2>
-
-            <div class="space-y-4 text-sm text-slate-400 text-center">
-                <p><strong>OCR + Recommendation:</strong> Fully functional and validated</p>
-                <p><strong>Frontend System:</strong> Complete and working</p>
-                <p><strong>CV Pipeline:</strong> Implemented but accurate real-world output still under validation</p>
-                <p><strong>Prototype Stage:</strong> The system is currently at a prototype stage, with CV-based estimation requiring further calibration for reliable deployment.</p>
-            </div>
-        </section>
-
-        <!-- MODEL LIMITATIONS -->
-        <section id="limitations" class="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <h2 class="text-4xl font-black uppercase tracking-tight mb-6">
-                    Model <span class="text-red-500">Limitations</span>
-                </h2>
-                <p class="text-slate-400 mb-6">While the CV pipeline handles structured plates well, there are inherent
-                    challenges:</p>
-                <ul class="text-slate-400 text-sm space-y-4">
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
-                        <span><strong>Monocular Ambiguity:</strong> Single-view depth estimation relies on visual
-                            priors; without multi-view geometry, a flat roti can exhibit depth signals mathematically
-                            similar to a shallow dal.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
-                        <span><strong>Segmentation Overlap:</strong> Deep learning models like SAM struggle with
-                            semantically blended edges, such as dal poured directly over rice, causing volume leakage
-                            between regions.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
-                        <span><strong>Scale Dependency:</strong> Accurate mass estimation heavily relies on standard
-                            plate geometries. Uncalibrated frames heavily skew volume results.</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="glass p-10 rounded-[2.5rem] flex items-center justify-center bg-red-500/5">
-                <i class="fas fa-triangle-exclamation text-8xl text-red-500/20"></i>
-            </div>
-        </section>
-
-        <!-- FUTURE WORK -->
-        <section id="future-work" class="space-y-12">
-            <h2 class="text-4xl font-black text-center uppercase tracking-tight">
-                <span class="text-emerald-500">Future</span> Work
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-3xl text-center border-b-2 border-emerald-500/20">
-                    <i class="fas fa-brain text-emerald-500 text-3xl mb-4"></i>
-                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Custom Weights</h3>
-                    <p class="text-sm text-slate-500">Fine-tuning models explicitly on an Indian Mess Meals dataset to
-                        boost accuracy for closely related foods like distinct curries.</p>
-                </div>
-                <div class="glass p-8 rounded-3xl text-center border-b-2 border-emerald-500/20">
-                    <i class="fas fa-utensils text-emerald-500 text-3xl mb-4"></i>
-                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Cutlery Filtering</h3>
-                    <p class="text-sm text-slate-500">Adding a structural detection layer to identify and ignore forks,
-                        spoons, and non-food items to prevent volume estimation inflation.</p>
-                </div>
-                <div class="glass p-8 rounded-3xl text-center border-b-2 border-emerald-500/20">
-                    <i class="fas fa-cloud text-emerald-500 text-3xl mb-4"></i>
-                    <h3 class="font-bold mb-2 uppercase text-xs tracking-widest">Real-Time AR</h3>
-                    <p class="text-sm text-slate-500">Migrating to cloud GPU edge endpoints to project recommended
-                        portion overlay targets directly via mobile WebGL in augmented reality.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- TEAM -->
-        <section id="team" class="text-center pt-10 border-t border-slate-900">
-            <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">
-                Academic Credits
-            </h2>
-
-            <div class="flex flex-wrap justify-center gap-10">
-                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-                    <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-                        Student
-                    </p>
-                    <p class="font-black text-xl text-slate-100">
-                        Jaskirat Singh
-                    </p>
-                    <p class="text-[10px] text-slate-500 mt-1">
-                        2427030438
-                    </p>
-                </div>
-
-                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
-                    <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">
-                        Student
-                    </p>
-                    <p class="font-black text-xl text-slate-100">
-                        Tejas Takkar
-                    </p>
-                    <p class="text-[10px] text-slate-500 mt-1">
-                        2427030460
-                    </p>
-                </div>
-
-                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-                    <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">
-                        Project Guide
-                    </p>
-                    <p class="font-black text-xl text-slate-100">
-                        Dr. Manu Shrivastava
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="py-12 text-center bg-black/40 border-t border-slate-900">
-        <p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
-            Manipal University Jaipur
-        </p>
-    </footer>
-
-    <script>
-        let sec = 0;
-        let timerInterval = null;
-
-        function startTimer() {
-            if (timerInterval) return;
-
-            timerInterval = setInterval(() => {
-                sec++;
-                let m = Math.floor(sec / 60);
-                let s = sec % 60;
-                document.getElementById('displayTime').innerText =
-                    `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-            }, 1000);
-        }
-    </script>
-
+    <section class="glass p-12 rounded-[3.5rem] border-t-4 border-blue-600">
+      <h2 class="text-4xl font-black text-center uppercase tracking-tight mb-6">Conclusion</h2>
+      <p class="text-slate-400 leading-relaxed text-center max-w-4xl mx-auto">
+        The earlier PortionVision project established the broader system architecture, but this semester focused on the critical missing component: reliable Indian food classification. By building a transfer-learning-based classifier with strong evaluation metrics and real-image prediction capability, we have created a solid foundation for the final portion estimation system. The next phase is to expand beyond the current class scope, improve weak classes, and integrate the recognition stage into full multi-food meal analysis.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto pt-8 border-t border-slate-800 mt-8">
+        <div class="bg-white/5 rounded-2xl p-6">
+          <h3 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-2">Tejas Takkar</h3>
+          <p class="text-slate-400 text-sm">2427030460</p>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-6">
+          <h3 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-2">Jaskirat Singh</h3>
+          <p class="text-slate-400 text-sm">2427030438</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
-
 </html>
